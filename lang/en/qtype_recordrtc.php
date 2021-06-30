@@ -25,20 +25,24 @@
 $string['audio'] = 'Single audio';
 $string['audiobitrate'] = 'Audio bitrate';
 $string['audiobitrate_desc'] = 'Quality of audio recording (larger number means higher quality)';
+$string['audiotimelimit'] = 'Max audio recording duration';
+$string['audiotimelimit_desc'] = 'Maximum time that a question author can set for the audio recording length.';
 $string['avplaceholder'] = 'Audio/video placeholders';
 $string['avplaceholder_help'] = 'Place one or more recording widgets anywhere in the question text. You can copy the examples here.
 
-Each placeholder is a name, then the widget type after a colon. Each name must be different.
+Each placeholder requires, in double square brackets, a unique name (e.g. \'recorder1\'), a type (\'audio\' or \'video\') and an optional duration, separated by colons. The duration should be expressed like \'30s\' or \'05m45s\'. When no duration is set, the widget will default to the maximum recording duration.
 
-You may be able to apply formatting to the widget, such as changing its alignment.';
+You may be able to apply formatting to the widget, such as changing its alignment or placing it in a table.';
 $string['customav'] = 'Customised audio/video';
 $string['downloadrecording'] = 'Download {$a}';
+$string['err_audiotimelimit'] = 'Maximum recording duration cannot be greater than {$a} seconds (Max audio recording duration setting).';
 $string['err_closesquarebrackets'] = 'Missing close square bracket(s). {$a->format}';
 $string['err_opensquarebrackets'] = 'Missing open square bracket(s). {$a->format}';
-$string['err_placeholderformat'] = 'The placeholder format is [[name:audio]] or [[name:video]], where name can only contain lower-case letters, numbers, hyphens and underscores, and must be no more than 32 characters long.';
-$string['err_placeholderincorrectformat'] = 'The placeholders in the question text are not in the correct format. {$a->format}';
+$string['err_placeholderformat'] = 'The placeholder format is either [[name:audio:duration]] or [[name:video:duration]], where name can only contain lower-case letters, numbers, hyphens and underscores, and must be no more than 32 characters long. The duration is optional and should be like \'01m20s\', \'02m\' or \'45s\'.';
+$string['err_placeholderincorrectformat'] = 'A placeholder in the question text is not in the correct format. {$a->format}';
 $string['err_placeholdermediatype'] = 'Widget type "{$a->text}" is not valid. {$a->format}';
 $string['err_placeholderneeded'] = 'You must add at least one placeholder to the question text.';
+$string['err_placeholdermissingduration'] = '{$a} missing duration. Enter the required duration in correct format or remove the last \':\' to consider system default duration for this question.';
 $string['err_placeholdernotallowed'] = 'You cannot use placeholders with Recording type {$a}.';
 $string['err_placeholdertitle'] = '"{$a->text}" is not a valid name. {$a->format}';
 $string['err_placeholdertitlecase'] = '"{$a->text}" is not a valid name. Names may only contain lower-case letters. {$a->format}';
@@ -46,6 +50,8 @@ $string['err_placeholdertitleduplicate'] = '"{$a->text}" has been used more than
 $string['err_placeholdertitlelength'] = '"{$a->text}" is longer than {$a->maxlength} characters. {$a->format}';
 $string['err_timelimit'] = 'Maximum recording duration cannot be greater than {$a}.';
 $string['err_timelimitpositive'] = 'Maximum recording duration must be greater than 0.';
+$string['err_videotimelimit'] = 'Maximum recording duration cannot be greater than {$a} seconds (Max video recording duration setting).';
+$string['err_zeroornegativetimelimit'] = '"{$a}" is not a valid. Maximum recording duration must be greater than 0.';
 $string['filex'] = 'File {$a}';
 $string['gumabort'] = 'Something strange happened which prevented the webcam/microphone from being used';
 $string['gumabort_title'] = 'Something happened';
@@ -88,13 +94,16 @@ $string['pluginname_link'] = 'question/type/recordrtc';
 $string['pluginnameadding'] = 'Adding a record audio/video question';
 $string['pluginnameediting'] = 'Editing a record audio/video question';
 $string['pluginnamesummary'] = 'Students respond to the question text by recording audio or video (or a mix of both if you select the \'Customised A/V\' option) directly into their browser. This can then be graded manually, or by self-assessment if you have installed The Open University\'s free optional behaviour plugin.';
-$string['privacy:metadata'] = 'The Record audio/video question type plugin does not store any personal data.';
+$string['privacy:metadata'] = 'Record audio/video question type plugin allows question authors to set default options as user preferences.';
+$string['privacy:preference:defaultmark'] = 'The default mark set for a given question.';
+$string['privacy:preference:mediatype'] = 'Whether media type is set to \'Single audio\', \'Single video\' or \'Customised audio/video\'';
+$string['privacy:preference:timelimitinseconds'] = 'The \'Maximum recording duration\' set for a given question.';
 $string['recordagain'] = 'Re-record';
 $string['recordingfailed'] = 'Recording failed';
 $string['recordinginprogress'] = 'Stop recording ({$a})';
+$string['startcamera'] = 'Start camera';
 $string['startrecording'] = 'Start recording';
 $string['timelimit'] = 'Maximum recording duration';
-$string['timelimit_desc'] = 'Maximum time that a question author can set for the recording length.';
 $string['timelimit_help'] = 'This is the longest duration of a recording that the student is allowed to make. If they reach this time, the recording will automatically stop. There is an upper limit to the value that can be set here. If you need a longer time, ask an administrator.';
 $string['uploadaborted'] = 'Saving aborted';
 $string['uploadcomplete'] = 'Recording uploaded';
@@ -107,3 +116,5 @@ $string['videobitrate'] = 'Video bitrate';
 $string['videobitrate_desc'] = 'Quality of video recording (larger number means higher quality)';
 $string['videosize'] = 'Video size';
 $string['videosize_desc'] = 'The size of the video.';
+$string['videotimelimit'] = 'Max video recording duration';
+$string['videotimelimit_desc'] = 'Maximum time that a question author can set for the video recording length.';
