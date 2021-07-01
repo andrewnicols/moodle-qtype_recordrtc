@@ -30,9 +30,9 @@ import ModalFactory from 'core/modal_factory';
 import {Mp3MediaRecorder} from 'https://unpkg.com/mp3-mediarecorder@4.0.5/dist/index.umd.js';
 
 const workerURL = URL.createObjectURL(new Blob([
-        "import { initMp3MediaEncoder } from 'https://unpkg.com/mp3-mediarecorder@4.0.5/worker/index.es5.js';",
-        "initMp3MediaEncoder({vmsgWasmUrl: 'https://unpkg.com/vmsg@0.4.0/vmsg.wasm'});"
-        ], {type: 'application/javascript'}));
+    "importScripts('https://unpkg.com/mp3-mediarecorder@4.0.5/worker/index.umd.js');",
+    "mp3EncoderWorker.initMp3MediaEncoder({vmsgWasmUrl: 'https://unpkg.com/vmsg@0.4.0/vmsg.wasm'});",
+], {type: 'application/javascript'}));
 
 /**
  * Verify that the question type can work. If not, show a warning.
@@ -692,7 +692,7 @@ function RecordRtcQuestion(questionId, settings) {
  * @param {string} questionId id of the outer question div.
  * @param {Object} settings like audio bit rate.
  */
-function init (questionId, settings) {
+function init(questionId, settings) {
     M.util.js_pending('init-' + questionId);
     new RecordRtcQuestion(questionId, settings);
     M.util.js_complete('init-' + questionId);
